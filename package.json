@@ -1,7 +1,7 @@
 {
-  "name": "ascoltatori",
+  "name": "@phucpnt/ascoltatori-lowfat",
   "version": "3.0.2",
-  "description": "The pub/sub library for node backed by Redis, MongoDB, AMQP (RabbitMQ), ZeroMQ, Kafka, MQTT (Mosquitto) or just plain node!",
+  "description": "The pub/sub library for node backed by AMQP (RabbitMQ) or just plain node!",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive --bail --reporter spec test --globals Promise",
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mcollina/ascoltatori.git"
+    "url": "https://github.com/phucpnt/ascoltatori.git"
   },
   "bugs": {
-    "url": "http://github.com/mcollina/ascoltatori/issues"
+    "url": "http://github.com/phucpnt/ascoltatori/issues"
   },
   "keywords": [
     "publish",
@@ -43,7 +43,8 @@
   "license": "MIT",
   "contributors": [
     "Filippo De Pretto <filnik90@gmail.com>",
-    "David Halls <dave@davedoesdev.com>"
+    "David Halls <dave@davedoesdev.com>",
+    "Phuc PNT. <pn.truongphuc@gmail.com>",
   ],
   "devDependencies": {
     "mocha": "^2.3.3",
