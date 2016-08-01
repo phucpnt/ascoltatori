@@ -44,7 +44,7 @@
   "contributors": [
     "Filippo De Pretto <filnik90@gmail.com>",
     "David Halls <dave@davedoesdev.com>",
-    "Phuc PNT. <pn.truongphuc@gmail.com>",
+    "Phuc PNT. <pn.truongphuc@gmail.com>"
   ],
   "devDependencies": {
     "mocha": "^2.3.3",
