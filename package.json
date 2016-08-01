@@ -1,6 +1,6 @@
 {
   "name": "@phucpnt/ascoltatori-lowfat",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "The pub/sub library for node backed by AMQP (RabbitMQ) or just plain node!",
   "main": "index.js",
   "scripts": {
