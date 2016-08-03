@@ -4,64 +4,22 @@ global.sinon = require("sinon");
 global.chai = require("chai");
 global.expect = require("chai").expect;
 
-global.redisSettings = function() {
-  return {
-    json: false,
-    port: 6379,
-    host: '127.0.0.1'
-  };
-};
 
 var portCounter = 7042;
 global.nextPort = function() {
   return ++portCounter;
 };
 
-global.zeromqSettings = function(remote_ports) {
-  return {
-    json: false,
-    zmq: require("zmq"),
-    port: "tcp://127.0.0.1:" + global.nextPort(),
-    controlPort: "tcp://127.0.0.1:" + global.nextPort(),
-    delay: 10
-  };
-};
-
-global.kafkaSettings = function() {
-  return {
-    json: false,
-    kafka: require("kafka-node"),
-    connectionString: "localhost:2181",
-    clientId: "test",
-    groupId: "test",
-    defaultEncoding: "utf8",
-    encodings: {image: "buffer", hello_42: "utf-8"}
-  };
-};
-
 global.AMQPSettings = function() {
   return {
     json: false,
     amqp: require("amqp"),
-    exchange: "ascolatore" + global.nextPort()
-  };
-};
-
-global.MQTTSettings = function() {
-  return {
-    json: false,
-    mqtt: require("mqtt"),
-    host: "127.0.0.1",
-    port: 5883
-  };
-};
-
-global.mongoSettings = function() {
-  return {
-    url: 'mongodb://127.0.0.1/ascoltatoriTests?auto_reconnect=true',
-    pubsubCollection: 'pubsub',
-    json: false,
-    mongo: {} // put here your mongo-specific options!
+    exchange: "ascolatore" + global.nextPort(),
+    client: {
+      host: 'automa.lifboard.local',
+      login: 'user1',
+      password: 'password',
+    }
   };
 };
 
@@ -84,12 +42,6 @@ global.eventEmitter2Settings = function() {
   };
 };
 
-global.trieSettings = function() {
-  return {
-    json: false
-  };
-};
-
 global.decoratorSettings = function() {
   var r = global.trieSettings();
   r.WrappedAscoltatore = global.ascoltatori.TrieAscoltatore;
@@ -103,16 +55,6 @@ global.prefixSettings = function() {
   r.args = [this.separator + "myprefix"];
   return r;
 };
-
-var mosca = require("mosca");
-
-global.mqttServer = new mosca.Server({
-  port: 5883,
-  stats: false,
-  logger: {
-    level: "fatal"
-  }
-});
 
 if (process.env.COVER) {
   global.ascoltatori = require("../lib-cov/ascoltatori");
