@@ -14,12 +14,34 @@ global.AMQPSettings = function() {
   return {
     json: false,
     amqp: require("amqp"),
-    exchange: "ascolatore" + global.nextPort(),
-    client: {
-      host: 'automa.lifboard.local',
-      login: 'user1',
-      password: 'password',
-    }
+    exchange: "ascolatore" + global.nextPort()
+  };
+};
+
+global.AMQPLibSettings = function() {
+  return {
+    json: false,
+    amqp: require("amqplib/callback_api"),
+    exchange: "ascolatore" + global.nextPort()
+  };
+};
+
+global.MQTTSettings = function() {
+  return {
+    json: false,
+    mqtt: require("mqtt"),
+    host: "127.0.0.1",
+    port: 5883
+  };
+};
+
+global.mongoSettings = function() {
+  return {
+    url: 'mongodb://127.0.0.1/ascoltatoriTests?auto_reconnect=true',
+    pubsubCollection: 'pubsub',
+    json: false,
+    mongo: {} // put here your mongo-specific options!
+>>>>>>> feat/amqplib
   };
 };
 
